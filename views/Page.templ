@@ -1,0 +1,34 @@
+package views
+
+templ Page() {
+	<html>
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Mouse Counter</title>
+			<script src="/static/js/htmx.min.js"></script>
+			<link rel="stylesheet" href="/static/css/bulma.min.css"/>
+		</head>
+		<body>
+			<section class="hero is-primary is-medium is-fullheight">
+				<!-- Hero content: will be in the middle -->
+				<div class="hero-body">
+					<div class="container has-text-centered">
+						<p class="title">
+							Mouse Counter
+						</p>
+						<div class="box" hx-target="#count" hx-post="/mouse_entered" hx-trigger="mouseenter">
+							<p>
+								Mouse entered count: <span id="count">0</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</body>
+	</html>
+}
+
+templ Count(count string) {
+	{ count }
+}
